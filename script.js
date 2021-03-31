@@ -50,6 +50,10 @@ function showPeople() {
   // loop through all the people listed in the Airtable data. Inside is the code we are applying for EACH person in the list of people.
   people.forEach((person) => {
 
+  const singleContainer = document.createElement("div");
+  singleContainer.classList.add("round");
+
+
     // Print out what a single person's data looks like by printing out its fields
     console.log("SHOWING THE PERSON")
     //console.log(person.fields);
@@ -57,16 +61,19 @@ function showPeople() {
 
     const personName = document.createElement("h2");
     personName.innerText = person.fields.names;
-    peopleContainer.appendChild(personName);
+    singleContainer.appendChild(personName);
 
     const personPhoto = document.createElement("img");
     personPhoto.src = person.fields.photos[0].url;
-    peopleContainer.appendChild(personPhoto);
+    singleContainer.appendChild(personPhoto);
 
 
     const personNote = document.createElement("h3");
     personNote.innerText = person.fields.notes;
-    peopleContainer.appendChild(personNote);
+    singleContainer.appendChild(personNote);
+
+  peopleContainer.appendChild(singleContainer);
+
 
   });
 
